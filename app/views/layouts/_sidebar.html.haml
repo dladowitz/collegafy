@@ -16,11 +16,24 @@
                 %a{:href => "login.html"} Logout
         .logo-element
           IN+
-      %li.active
+      %li{:class => ("active" if current_page?(user_path(current_user)))}
         %a{:href => "#{user_path(current_user)}"}
           %i.fa.fa-dashboard.fa-2x
           %span.nav-label My Dashboard
+
+      -# This is crasy talk
+      %li{:class => ("active" if current_page?(new_user_subscription_path(current_user)) || (current_user.subscription && current_page?(edit_user_subscription_path(current_user, current_user.subscription))) )}
+        = link_to current_user.valid_subscription? ? edit_user_subscription_path(current_user, current_user.subscription) : new_user_subscription_path(current_user), onclick: "ga('send', 'event', 'link', 'clicked', 'sidebar subscriptions link', '3')" do
+          %i.fa.fa-shopping-cart.fa-2x
+          %span.nav-label Subscriptions
+
+      - if current_user.admin?
+        %li{:class => ("active" if current_page?(users_path))}
+          %a{:href => "#{users_path}"}
+            %i.fa.fa-user.fa-2x
+            %span.nav-label Find Users
+
       %li
-        %a{:href => "#{users_path}"}
-          %i.fa.fa-user.fa-2x
-          %span.nav-label Find Users
+        = link_to session_path(current_user), method: :delete, onclick: "ga('send', 'event', 'link', 'clicked', 'sidebar signout link', '3')" do
+          %i.fa.fa-sign-out.fa-2x
+          %span.nav-label Sign Out

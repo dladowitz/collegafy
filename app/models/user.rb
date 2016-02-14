@@ -43,7 +43,10 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name.capitalize if first_name} #{last_name.capitalize if last_name}"
   end
-
+  
+  def valid_subscription?
+    subscription && subscription.level >= 1
+  end
 
   ### Class Methods
 
