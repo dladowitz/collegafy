@@ -10,6 +10,36 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  # Ignore bad email addresses and do not raise email delivery errors.
+  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  # config.action_mailer.raise_delivery_errors = false
+
+  #### Mailer Optipns
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.default_url_options = { :host => "#{mail_domain}" }
+
+  # mailgun, not really sure what mailgun account this is using. Maybe some default thing from heroku?
+  config.action_mailer.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => "#{mail_domain}",
+    :authentication => :plain,
+  }
+
+  # # gmail settings
+  # config.action_mailer.smtp_settings = {
+  #   address:              "smtp.gmail.com",
+  #   port:                 587,
+  #   domain:               "{mail_domain}",
+  #   user_name:            ENV["GMAIL_USERNAME"],
+  #   password:             ENV["GMAIL_PASSWORD"],
+  #   authentication:       "plain",
+  #   enable_starttls_auto: true
+  # }
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -60,38 +90,6 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
-
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
-
-  #### Mailer Optipns
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.default_url_options = {
-    :host => "thinkafy.heroku.com"
-  }
-
-  # mailgun, not really sure what mailgun account this is using. Maybe some default thing from heroku?
-  config.action_mailer.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'thinkafy.heroku.com',
-    :authentication => :plain,
-  }
-
-  # # gmail settings
-  # config.action_mailer.smtp_settings = {
-  #   address:              "smtp.gmail.com",
-  #   port:                 587,
-  #   domain:               "thinkafy.com",
-  #   user_name:            ENV["GMAIL_USERNAME"],
-  #   password:             ENV["GMAIL_PASSWORD"],
-  #   authentication:       "plain",
-  #   enable_starttls_auto: true
-  # }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

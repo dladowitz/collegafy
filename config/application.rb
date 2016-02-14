@@ -6,6 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# hmmm, not sure if we can safely change the name of this
 module LittleCatLabs
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

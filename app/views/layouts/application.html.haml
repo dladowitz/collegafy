@@ -1,20 +1,20 @@
-!!!
-%html
+!!! 5
+%html(lang="en-US")
   %head
-    %title Thinkafy
-    %link{:href => "http://www.thinkafy.com", :rel => "canonical"}/
-    %meta{:content => "Thinkafy", :property => "og:site_name"}/
-    %meta{:content => "Thinkafy", :property => "og:title"}/
-    %meta{:content => "http://www.thinkafy.com", :property => "og:url"}/
+    %title= project_name
+    %link{:href => "#{root_url}", :rel => "canonical"}/
+    %meta{:content => "#{project_name}", :property => "og:site_name"}/
+    %meta{:content => "#{project_name}", :property => "og:title"}/
+    %meta{:content => "#{root_url}", :property => "og:url"}/
     %meta{:content => "website", :property => "og:type"}/
-    %meta{:content => "Its pretty simple. Your company goes through whiteboard markers every month. We make sure you always have enough on hand.", :property => "og:description"}/
-    %meta{:content => "http://www.thinkafy.com/assets/background/hero_text_2.png", :property => "og:image"}/
-    %meta{:content => "Thinkafy", :itemprop => "name"}/
-    %meta{:content => "http://www.thinkafy.com", :itemprop => "url"}/
-    %meta{:content => "Thinkafy", :name => "twitter:title"}/
-    %meta{:content => "http://www.thinkafy.com", :name => "twitter:url"}/
+    %meta{:content => "#{project_description}", :property => "og:description"}/
+    %meta{:content => "#{root_url}/assets/background/hero_text_2.png", :property => "og:image"}/
+    %meta{:content => "#{project_name}", :itemprop => "name"}/
+    %meta{:content => "#{root_url}", :itemprop => "url"}/
+    %meta{:content => "#{project_name}", :name => "twitter:title"}/
+    %meta{:content => "#{root_url}", :name => "twitter:url"}/
     %meta{:content => "summary", :name => "twitter:card"}/
-    %meta{:content => "", :name => "description"}/
+    %meta{:content => "#{project_description}", :name => "description"}/
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
@@ -36,7 +36,6 @@
       = render "layouts/sidebar"
 
       #page-wrapper.gray-bg
-        = render "layouts/breadcrumbs"
         = render "layouts/flash_messages"
 
         .wrapper.wrapper-content.animated.fadeInRight

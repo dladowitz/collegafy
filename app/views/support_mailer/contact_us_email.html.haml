@@ -6,7 +6,7 @@
     .panel.panel-success
       .panel-heading{style: "background-color: yellowgreen !important"}
         .panel-title
-          %h2.text-center Someone needs help with Thinkafy!
+          %h2.text-center= "Someone needs help with #{project_name}!"
       .panel-body
         %h2 Lets Get Back To Them Quick Style.
         %h3.text-center Here is there info:
@@ -26,4 +26,4 @@
 
       .panel-footer
         %h5
-        = link_to "Thinkafy", "https://thinkafy.heroku.com", class: "blue underline text-center"
+        = link_to project_name, root_url, class: "blue underline text-center"

@@ -6,6 +6,6 @@ class SupportMailer < ApplicationMailer
     @options = options
     # attachments.inline['logo_handwriting.png'] = File.read('app/assets/images/logo_handwriting.png')
 
-    mail(subject: "Thinkafy - Someone Needs Support")
+    mail(subject: "#{project_name} - Someone Needs Support")
   end
 end
