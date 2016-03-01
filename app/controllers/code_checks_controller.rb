@@ -1,8 +1,8 @@
 class CodeChecksController < ApplicationController
   def index
 
-    start = 1600  
-    stop = 10000
+    start = 13435
+    stop = 17576
     school_codes = code_range(start, stop)
 
     if params[:run_checks] == "on"
