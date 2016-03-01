@@ -1,0 +1,8 @@
+%h1
+  Total University Codes Checked:
+  = @code_checks.count
+%h1
+  Total Colleged Registered:
+  = @colleges.count
+
+= link_to "Register for Schools", code_checks_path(run_checks: "on"), class: "btn btn-primary mt20"

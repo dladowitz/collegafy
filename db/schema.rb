@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151224055717) do
+ActiveRecord::Schema.define(version: 20160301133027) do
+
+  create_table "code_checks", force: :cascade do |t|
+    t.string   "code"
+    t.boolean  "valid_univ_code"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "colleges", force: :cascade do |t|
+    t.string   "code"
+    t.string   "access_id"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "home_url"
+  end
 
   create_table "password_resets", force: :cascade do |t|
     t.integer  "user_id"

@@ -21,8 +21,10 @@ Rails.application.routes.draw do
       delete 'destroy', on: :collection
     end
   end
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :password_resets, only: [:create]
+  resources :code_checks, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

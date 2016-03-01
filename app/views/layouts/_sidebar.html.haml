@@ -21,6 +21,10 @@
           %i.fa.fa-dashboard.fa-2x
           %span.nav-label My Dashboard
 
+      %li{:class => ("active" if current_page?(code_checks_path(current_user)))}
+        %a{:href => "#{code_checks_path}"}
+          %i.fa.fa-university.fa-2x
+          %span.nav-label Colleges
       -# This is crasy talk
       %li{:class => ("active" if current_page?(new_user_subscription_path(current_user)) || (current_user.subscription && current_page?(edit_user_subscription_path(current_user, current_user.subscription))) )}
         = link_to current_user.valid_subscription? ? edit_user_subscription_path(current_user, current_user.subscription) : new_user_subscription_path(current_user), onclick: "ga('send', 'event', 'link', 'clicked', 'sidebar subscriptions link', '3')" do
