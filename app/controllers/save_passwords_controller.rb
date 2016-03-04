@@ -10,7 +10,7 @@ class SavePasswordsController < ApplicationController
     puts "\n"
 
     start_date = "2016-02-29"
-    end_date = "2016-03-03"
+    end_date = "2016-03-04"
 
     puts "Getting messages from #{start_date} to #{end_date}"
     messages = gmail.inbox.find(after: Date.parse(start_date), before: Date.parse(end_date))
