@@ -12,6 +12,7 @@
 #
 class College < ActiveRecord::Base
   validates :code, :access_id, :home_url, presence: true
+  has_many :job_postings
 
   def self.mass_registration(school_codes, start_index)
     code_count = 0
@@ -62,7 +63,7 @@ class College < ActiveRecord::Base
       form.CompanyURL = "desta.co"
       form.CompanyDesc = "Dests helps people who love the outdoors find summer & winter jobs. We specialize in rafting, climbing, skiing, summer camps, hiking, guiding and national parks."
       form.EEOC = "dl"
-      form.checkboxes.first.value = "0"
+      form.checkboxes.first.checked = true
       form.Industry = ["11", "47", "59"]
       form.AccessID = "dladowitz"
 

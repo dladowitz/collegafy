@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301133027) do
+ActiveRecord::Schema.define(version: 20160305231442) do
 
   create_table "code_checks", force: :cascade do |t|
     t.string   "code"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20160301133027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "home_url"
+  end
+
+  create_table "job_postings", force: :cascade do |t|
+    t.integer  "college_id"
+    t.string   "company"
+    t.string   "title"
+    t.string   "desta_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "password_resets", force: :cascade do |t|
