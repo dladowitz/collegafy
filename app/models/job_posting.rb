@@ -13,4 +13,6 @@
 
 class JobPosting < ActiveRecord::Base
   belongs_to :college
+
+  validates_uniqueness_of :college_id, :scope => [:title, :company]
 end

@@ -1,7 +1,7 @@
 namespace :run_bot do
   desc "logs in and posts job to collge job board"
   task post__indian_head_job: :environment do
-    number_of_postings = 1
+    number_of_postings = 4
     title: "Summer Camp Counselor"
     company: "Indian Head Camp"
     desta_url: "desta.co\/job\/opt-specialist"
@@ -19,8 +19,15 @@ namespace :run_bot do
     not_successfully_submited = 0
     missing_post_new_job_link = 0
     new_job_postings_in_db = 0
+    duplicate_job_posting_for_college = 0
 
     approved_colleges.each do |college|
+
+      if college.job_postings.where(title: title, company: company, desta_url: desta_url)
+        duplicate_job_posting_for_college += 1
+        next
+      end
+
       agent = Mechanize.new
       login_url = college.home_url + "/Employer.cfm"
       puts "Generating login url: #{login_url}"
@@ -136,6 +143,7 @@ As they get older, they begin taking overnight trips to the beautiful Adirondack
     puts "Jobs successfully posted: #{successfully_submited}"
     puts "Jobs NOT successfully posted: #{not_successfully_submited}"
     puts "College homepages missing 'new_job_link': #{missing_post_new_job_link}"
+    puts "Skipped because job has already been posted for this college: #{duplicate_job_posting_for_college}"
 
     puts "Shutting down bot........"
   end
