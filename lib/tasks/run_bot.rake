@@ -1,13 +1,12 @@
 namespace :run_bot do
   desc "logs in and posts job to collge job board"
-  task post__indian_head_job: :environment do
-    number_of_postings = 4
-    title: "Summer Camp Counselor"
-    company: "Indian Head Camp"
-    desta_url: "desta.co\/job\/opt-specialist"
+  task post_indian_head_job: :environment do
+    number_of_postings = 8
+    title = "Summer Camp Counselor"
+    company = "Indian Head Camp"
+    desta_url = "desta.co\/job\/opt-specialist"
 
-
-    puts "Starting up bot........"
+    puts "\n************** Starting up bot **************"
 
     puts "Finding colleges in database with passwords. Limiting to #{number_of_postings}"
     approved_colleges = College.where.not("password = 'nil'").limit(number_of_postings)
@@ -22,8 +21,10 @@ namespace :run_bot do
     duplicate_job_posting_for_college = 0
 
     approved_colleges.each do |college|
+      puts "\nCollge is: #{college.home_url}"
 
-      if college.job_postings.where(title: title, company: company, desta_url: desta_url)
+      if college.job_postings.where(title: title, company: company, desta_url: desta_url).any?
+        puts "Skipping - Job has already been posted for #{title} - #{company} - #{desta_url}"
         duplicate_job_posting_for_college += 1
         next
       end
@@ -103,11 +104,11 @@ namespace :run_bot do
 
         form.ExpireDate = "06\/20\/2016"
 
-        form.JobDescription = "https:\/\/desta.co/job/opt-specialist <br>
-Councelors are the guides and facilitators at Indian Head Camp. OPT staff work with all ages at camp and with a variety of skills, including boating, zipping, climbing, mountain biking and hiking to name a few.<br>
-The program starts with educational nature hikes around camp and builds up to a four-day trip to the Adirondacks that includes camping on an island.  The design of the program is to increase the challenges as our campers need and age increases.<br>
-On camp, the programs offers everything from a 30 element project adventure ropes course, 1,215 feet of zipline, 7 miles of hiking and mountain biking trails, rock climbing walls, bouldering walls, nature education, daily Delaware River canoe trips, and a variety of special outdoor adventure-centric camp events. Off camp, is really where the adventure begins.<br>
-The younger campers on Lake Camp get to camp out in a teepee, sing songs around the campfire, look at the stars, eat smore's, and feel like they're off on an adventure in the woods—when really, they're still safe and sound on the camp premises. This is to get the campers comfortable with the idea of not spending the night in their bunks.<br>
+        form.JobDescription = "https:\/\/desta.co/job/opt-specialist <br><br>
+Councelors are the guides and facilitators at Indian Head Camp. OPT staff work with all ages at camp and with a variety of skills, including boating, zipping, climbing, mountain biking and hiking to name a few.<br><br>
+The program starts with educational nature hikes around camp and builds up to a four-day trip to the Adirondacks that includes camping on an island.  The design of the program is to increase the challenges as our campers need and age increases.<br><br>
+On camp, the programs offers everything from a 30 element project adventure ropes course, 1,215 feet of zipline, 7 miles of hiking and mountain biking trails, rock climbing walls, bouldering walls, nature education, daily Delaware River canoe trips, and a variety of special outdoor adventure-centric camp events. Off camp, is really where the adventure begins.<br><br>
+The younger campers on Lake Camp get to camp out in a teepee, sing songs around the campfire, look at the stars, eat smore's, and feel like they're off on an adventure in the woods—when really, they're still safe and sound on the camp premises. This is to get the campers comfortable with the idea of not spending the night in their bunks.<br><br>
 As they get older, they begin taking overnight trips to the beautiful Adirondacks where they will spend time hiking, rock climbing, rappelling, and camping—all while also learning about the endless varieties that nature has to offer. These trips get progressively more adventurous as the campers become more mature, but every trip is lead by outdoor adventure specialists who have been vigorously trained. All adventure staff are also certified lifeguards by The American Red Cross, trained to the ACCT Challenge Course Practioneer standards, and trained in single pitch climbing & anchors building."
 
         form.submit
@@ -115,7 +116,7 @@ As they get older, they begin taking overnight trips to the beautiful Adirondack
         if agent.page.body.include?("has been posted successfully")
           puts "Successfully submitted job!"
           job_posting = college.job_postings.new(title: title, company: company, desta_url: desta_url)
-          successfully_submited =+ 1
+          successfully_submited += 1
           puts "Jobs successfully posted: #{successfully_submited}"
 
           if job_posting.save
@@ -136,16 +137,16 @@ As they get older, they begin taking overnight trips to the beautiful Adirondack
         missing_post_new_job_link += 1
         puts "Jobs NOT successfully posted: #{not_successfully_submited}"
       end
-
-
     end
 
-    puts "Jobs successfully posted: #{successfully_submited}"
-    puts "Jobs NOT successfully posted: #{not_successfully_submited}"
-    puts "College homepages missing 'new_job_link': #{missing_post_new_job_link}"
+    puts "\n---------------- Job Posting Results ----------------"
+    puts "Jobs successfully submitted: #{successfully_submited}"
+    puts "Jobs NOT successfully submitted: #{not_successfully_submited}"
+    puts "College homepages missing 'new job' link: #{missing_post_new_job_link}"
     puts "Skipped because job has already been posted for this college: #{duplicate_job_posting_for_college}"
-
-    puts "Shutting down bot........"
+    puts "---------------- Job Posting Results ----------------"
+    puts "\n"
+    puts "************** Shutting down bot **************"
   end
 
 
