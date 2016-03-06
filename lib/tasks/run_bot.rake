@@ -1,7 +1,7 @@
 namespace :run_bot do
   desc "logs in and posts job to collge job board"
   task post_indian_head_job: :environment do
-    number_of_postings = 15
+    number_of_postings = 50
     title = "Summer Camp Counselor"
     company = "Indian Head Camp"
     desta_url = "desta.co\/job\/opt-specialist"
@@ -19,6 +19,7 @@ namespace :run_bot do
     missing_post_new_job_link = 0
     new_job_postings_in_db = 0
     duplicate_job_posting_for_college = 0
+    broken_urls = 0
 
     approved_colleges.each do |college|
       puts "\nCollge is: #{college.home_url}"
@@ -34,7 +35,15 @@ namespace :run_bot do
       puts "Generating login url: #{login_url}"
 
       puts "Getting login page"
-      agent.get login_url
+
+      begin
+          agent.get login_url
+      rescue => e
+        puts "Problem getting URL, skipping"
+        broken_urls += 1
+        puts e.message
+        next
+      end
 
       password = college.password
       puts "Filling signing form with username: dladowitz, password: #{password}"
@@ -144,6 +153,7 @@ As they get older, they begin taking overnight trips to the beautiful Adirondack
     puts "Jobs NOT successfully submitted: #{not_successfully_submited}"
     puts "College homepages missing 'new job' link: #{missing_post_new_job_link}"
     puts "Skipped because job has already been posted for this college: #{duplicate_job_posting_for_college}"
+    puts "Skipped because of broken url: #{broken_urls}"
     puts "---------------- Job Posting Results ----------------"
     puts "\n"
     puts "************** Shutting down bot **************"
