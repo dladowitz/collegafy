@@ -1,7 +1,7 @@
 namespace :run_bot do
   desc "logs in and posts job to collge job board"
   task post_indian_head_job: :environment do
-    number_of_postings = 50
+    number_of_postings = 100
     title = "Summer Camp Counselor"
     company = "Indian Head Camp"
     desta_url = "desta.co\/job\/opt-specialist"
@@ -103,7 +103,7 @@ namespace :run_bot do
 
         form.ContactName = "Joe Ewing"
         form.ContactEMail = "joe@desta.com"
-        form.ContactPhone = "408 666 4411"
+        form.ContactPhone = "303-519-9391"
         form.CompanyAddr1 = "Summer Address"
         form.CompanyAddr2 = "PO Box 2005"
         form.CompanyCity = "Honesdale"
@@ -259,4 +259,33 @@ As they get older, they begin taking overnight trips to the beautiful Adirondack
       puts "Emails without a college URL: #{emails_without_college_url}"
     puts "************* Task Results *************\n\n"
   end
+
+
+
+
+
+
+
+
+
+
+
+
+  desc "logs in to job boards and gets view count"
+  task get_job_stats: :environment do
+    
+
+
+
+    puts "\n---------------- Job Posting Results ----------------"
+
+
+    puts "\n"
+    puts "************** Shutting down bot **************"
+  end
+
+
+
+
+
 end
