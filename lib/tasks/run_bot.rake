@@ -162,11 +162,13 @@ As they get older, they begin taking overnight trips to the beautiful Adirondack
 
 
 
-
+ # Use this instead of old SavePasswordsController
+ # gmail gem: https://github.com/gmailgem/gmail
+ # Need to enable lower security for gmail: https://www.google.com/settings/u/2/security/lesssecureapps
   desc "Pull passwords from email and save them to matching college"
   task pull_passwords_from_email: :environment do
-    start_date = "2016-03-03"
-    end_date = "2016-03-06"
+    start_date = "2016-03-01"
+    end_date = "2016-03-12"
 
 
     puts "Connecting to Gmail............."
@@ -215,7 +217,7 @@ As they get older, they begin taking overnight trips to the beautiful Adirondack
               puts "Saving password to College in database"
               college.password = password
               if college.save
-                updated_college =+ 1
+                updated_college += 1
                 puts "College saved with new password"
                 puts "Updated colleges: #{updated_colleges}"
               else
