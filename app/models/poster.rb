@@ -2,7 +2,7 @@ class Poster < ActiveRecord::Base
 
   # Set posting limit with number_of_postings
   def self.post_to_college_central_network(job)
-    number_of_postings = 400 #limits postings while testing
+    number_of_postings = 1#limits postings while testing
 
     puts "\n************** Starting up Posting Bot **************"
 
@@ -49,11 +49,11 @@ class Poster < ActiveRecord::Base
       form = agent.page.forms[1]
       puts "Logging into form"
 
-      unless form.BusCode
+      unless form
         puts "Missing Login Form. Probably the school shut down their account"
         next
       end
-      
+
       form.BusCode = "dladowitz"
       form.BusPassword = password
       form.submit
@@ -239,9 +239,39 @@ Compensation and Benefits:<br>
 • Employee housing is available on a part-time or full-time basis.<br><br>",
     }
 
+    jobs[2] = {
+      title: "River Guide",
+      company: "Oregon River Experiences",
+      desta_url: "desta.co\/job\/o-r-e-river-guide",
+      salary: "$75 - $150 a day",
+      location_wanted: ["OR"],
+      region: "Beavercreek",
+      location_zip: "97004",
+      interest_1_wanted: "88",
+      interest_2_wanted: "43",
+      interest_3_wanted: "117",
+      special_skills: "Love having fun, people and the outoors",
+      contact_name: "Joe Ewing",
+      contact_email: "joe@desta.com",
+      contact_phone: "303-519-9391",
+      company_addr1: "18074 S Boone Ct",
+      company_addr2: "",
+      company_city: "Beavercreek",
+      company_state: "OR",
+      company_zip: "97004",
+      expire_date: "06\/20\/2016",
+
+      job_description: "https:\/\/desta.co/job/o-r-e-river-guide <br><br>
+Counselors are the guides and facilitators at Indian Head Camp. OPT staff work with all ages at camp and with a variety of skills, including boating, zipping, climbing, mountain biking and hiking to name a few.<br><br>
+The program starts with educational nature hikes around camp and builds up to a four-day trip to the Adirondacks that includes camping on an island.  The design of the program is to increase the challenges as our campers need and age increases.<br><br>
+On camp, the programs offers everything from a 30 element project adventure ropes course, 1,215 feet of zipline, 7 miles of hiking and mountain biking trails, rock climbing walls, bouldering walls, nature education, daily Delaware River canoe trips, and a variety of special outdoor adventure-centric camp events. Off camp, is really where the adventure begins.<br><br>
+The younger campers on Lake Camp get to camp out in a teepee, sing songs around the campfire, look at the stars, eat smore's, and feel like they're off on an adventure in the woods—when really, they're still safe and sound on the camp premises. This is to get the campers comfortable with the idea of not spending the night in their bunks.<br><br>
+As they get older, they begin taking overnight trips to the beautiful Adirondacks where they will spend time hiking, rock climbing, rappelling, and camping—all while also learning about the endless varieties that nature has to offer. These trips get progressively more adventurous as the campers become more mature, but every trip is lead by outdoor adventure specialists who have been vigorously trained. All adventure staff are also certified lifeguards by The American Red Cross, trained to the ACCT Challenge Course Practioner standards, and trained in single pitch climbing & anchors building.",
+    }
+
 
     # set job
-    current_job = jobs[1]
+    current_job = jobs[2]
     puts "Current Job is set to: #{current_job[:title]}"
 
     return  current_job
