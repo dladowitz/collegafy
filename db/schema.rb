@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305231442) do
+ActiveRecord::Schema.define(version: 20160312194035) do
 
   create_table "code_checks", force: :cascade do |t|
     t.string   "code"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20160305231442) do
     t.string   "desta_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "views"
+    t.string   "status"
   end
 
   create_table "password_resets", force: :cascade do |t|

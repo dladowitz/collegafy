@@ -9,6 +9,8 @@
 #  desta_url  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  views      :integer
+#  status     :string
 #
 
 class JobPosting < ActiveRecord::Base
