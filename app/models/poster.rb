@@ -2,7 +2,7 @@ class Poster < ActiveRecord::Base
 
   # Set posting limit with number_of_postings
   def self.post_to_college_central_network(job)
-    number_of_postings = 1#limits postings while testing
+    number_of_postings = 400#limits postings while testing
 
     puts "\n************** Starting up Posting Bot **************"
 
@@ -262,13 +262,60 @@ Compensation and Benefits:<br>
       expire_date: "06\/20\/2016",
 
       job_description: "https:\/\/desta.co/job/o-r-e-river-guide <br><br>
-Counselors are the guides and facilitators at Indian Head Camp. OPT staff work with all ages at camp and with a variety of skills, including boating, zipping, climbing, mountain biking and hiking to name a few.<br><br>
-The program starts with educational nature hikes around camp and builds up to a four-day trip to the Adirondacks that includes camping on an island.  The design of the program is to increase the challenges as our campers need and age increases.<br><br>
-On camp, the programs offers everything from a 30 element project adventure ropes course, 1,215 feet of zipline, 7 miles of hiking and mountain biking trails, rock climbing walls, bouldering walls, nature education, daily Delaware River canoe trips, and a variety of special outdoor adventure-centric camp events. Off camp, is really where the adventure begins.<br><br>
-The younger campers on Lake Camp get to camp out in a teepee, sing songs around the campfire, look at the stars, eat smore's, and feel like they're off on an adventure in the woods—when really, they're still safe and sound on the camp premises. This is to get the campers comfortable with the idea of not spending the night in their bunks.<br><br>
-As they get older, they begin taking overnight trips to the beautiful Adirondacks where they will spend time hiking, rock climbing, rappelling, and camping—all while also learning about the endless varieties that nature has to offer. These trips get progressively more adventurous as the campers become more mature, but every trip is lead by outdoor adventure specialists who have been vigorously trained. All adventure staff are also certified lifeguards by The American Red Cross, trained to the ACCT Challenge Course Practioner standards, and trained in single pitch climbing & anchors building.",
+      Founded in 1978, Oregon River Experiences conducts half day to nine day whitewater raft trips on ten rivers in Oregon and Idaho. One of the Northwest’s premier outfitters, O.R.E.’s participatory raft trips focus on experiential learning and personal involvement. We employ guides who possess the work ethic, maturity, social aptitude, integrity, leadership skills, and whitewater boating skills necessary to conduct high quality river trips.<br><br>
+
+      General responsibilities:<br>
+      Conduct high quality, safe river trips<br>
+      Treat guests and fellow O.R.E. employees with courtesy and respect<br>
+      Contribute to a positive, supportive team atmosphere<br>
+      Arrive to work promptly as scheduled<br>
+      Drive company vehicles safely<br>
+      Keep vehicles clean and detect mechanical problems<br>
+      Promote sales of future trips as appropriate<br>
+      Comply with terms of employment contract<br>
+      Conform to company policies as described in the O.R.E. Guide’s Handbook<br><br>
+
+      Additional duties include the following:<br>
+      Engage guests in friendly conversation both on and off the river<br>
+      Cook all the meals on the O.R.E. menu, taking the lead in the kitchen as appropriate<br>
+      Rig and de-rig an oar and paddle rafts in a safe and timely manner<br>
+      Pack equipment carefully, and unpack, clean and put away all trip gear after trip<br>
+      Participate in any on-river guide meetings, as well as post-trip guide de briefings<br>
+      On multi-day trips, lead hikes and/or other activities to enrich our guests’ time with us<br>
+      On multi-day trips, present short interpretive presentations to guests<br>
+      On day trips, perform land support duties as requested (shuttles, photography, lunch prep)<br>
+      ",
     }
 
+    jobs[3] = {
+      title: "Alaskan Outdoor Guide",
+      company: "Kodiak Raspberry Island Remote Lodge",
+      desta_url: "desta.co\/job\/guide-kodiad-raspberry-island-remote-lodge",
+      salary: "$2,850.00/mo + Tips + Room & Board",
+      location_wanted: ["AK"],
+      region: "Kodiak",
+      location_zip: "99615",
+      interest_1_wanted: "88",
+      interest_2_wanted: "43",
+      interest_3_wanted: "117",
+      special_skills: "Love having fun, people and the outoors",
+      contact_name: "Joe Ewing",
+      contact_email: "joe@desta.com",
+      contact_phone: "303-519-9391",
+      company_addr1: "PO Box 888 Kodiak",
+      company_addr2: "",
+      company_city: "Kodiak",
+      company_state: "AK",
+      company_zip: "99615",
+      expire_date: "06\/20\/2016",
+
+      job_description: "https:\/\/desta.co/job/o-r-e-river-guide <br><br>
+      The Guide Position is a combination of two sub-positions, each starting at 8:00am, and concluding at 6:00pm. First, the Guide will primarily be in charge of any kayaking and or hiking expeditions, and secondly, if the lodge doesn’t have kayakers/hikers scheduled, the guide will work as a deckhand on the boat. Lastly, the Guide will be prepared and available for ‘other duties as assigned,’ as needed.<br><br>
+The Kayaking and Hiking Guide’s focus will be on taking our guests interested in those activities out on such trips, and support and follow-through of those day’s programs. Guests are typically ready for their day of activities between 8:30 and 9am. This position is client-to-guide relationship intensive--you must start ‘guiding’ right away. Our guests vary in physical ability and experience level, so be prepared to mold the experience you will offer your participants to their ability and enthusiasm. Be prepared to teach the participants every aspect of the trip they are on--how to put on a kayak skirt properly, how to hold a paddle and stroke properly, how to dress properly based on the weather and the type of trip you are taking them on. Be prepared to answer questions regarding the locale; the flora, fauna, and other questions relating to the weather, tides, geography, etc. Be prepared to educate and position the group for good photographs. We do not expect you to know every answer but have the resources here so you can gather the majority of the information you’ll need to provide an educational and rewarding experience to your participants.<br><br>
+The weather here is predictable to a degree. You will need to make decisions based on the safety of the group and our equipment that may conflict with your participant’s immediate goals. You will be guiding in bear country and will need to be comfortable with every stage of a bear encounter, including contact. We can teach you this, but if you’re terrified of bears or the water, this is not the job for you. If you are terrified of bears or the water and want this job to overcome your fear, this is not the job for you. Trips nearly always start and finish here at the lodge. Rare exceptions will involve a boat drop off and/or pick up. There are a variety of trails, almost always game trails, that go up the mountain behind the lodge or along the coast. There are a variety of kayak experiences that start from the lodge here, as well, and will always very as the tide comes in and goes out. Though we have a very gentle current, water height variation between high and low tides may be as much as 24 feet. It is also common to paddle a ways, get out, and enjoy some time on a local beach, or walk/hike from there. We require guides and guests return to the lodge by 5:00pm. In some cases guests will wish to either depart the lodge later in the morning or return to the lodge earlier in the evening. It is imperative that the Guide remains “guiding,” or “in charge” of his or her group of guests until 5:30pm; the remaining team at the lodge does not have room in their schedule to interact with the guests. The lodge itself is also closed from 1:00 p.m. to 4:00 p.m. Guides are expected to keep our equipment well maintained, clean, and ready for the next day’s activities.<br><br>
+The Deckhand Position will assist the boat captains and fishing/boating operations. While the position will mostly be filled on the Gemini with Birch as captain, the deckhand may be a) ‘leant’ to another boat captain/boat operating out of KRIRL, or b) dropped off with a group on shore to guide shore fishermen alone (fly fishermen/spin fishermen, likely targeting Salmon). Guests typically board the Gemini and other fishing boats at 8:30am give or take 15 minutes. Birch/captain will prep engines and bring the boat into the beach, while the guide stands by on the beach to help outfit clients in boots/rain gear/etc and board the boat. Daily guiding/deck handing duties will include interacting with clients, answering questions, and working the fishing gear. This will include gear preparation and readiness, hook baiting, fish landing, boat cleaning, crab pot pulling, preparation, crab cleaning, etc. Fishing boats return to the lodge typically around 5:30pm, at which point they will pull into the beach and drop off the clients, fish, and lunch bag, etc. The captain will return the boat to the mooring and deckhand will finish any boat cleanup and next day preparation while captain fills out the logs, etc.<br><br>
+On both kayaking/hiking guide days as well as deckhand days, the guide is expected to help outfit our guests in rain gear, boots, etc as needed at 8:00 a.m. and to help load the boat in the morning, as well as meet the boat on the beach at day’s end to help unload, clean, and prep the boat when the boat returns to the mooring.",
+    }
 
     # set job
     current_job = jobs[2]
