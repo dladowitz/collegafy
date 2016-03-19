@@ -48,6 +48,12 @@ class Poster < ActiveRecord::Base
 
       form = agent.page.forms[1]
       puts "Logging into form"
+
+      unless form.BusCode
+        puts "Missing Login Form. Probably the school shut down their account"
+        next
+      end
+      
       form.BusCode = "dladowitz"
       form.BusPassword = password
       form.submit
