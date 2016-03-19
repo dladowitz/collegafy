@@ -2,7 +2,7 @@ class Poster < ActiveRecord::Base
 
   # Set posting limit with number_of_postings
   def self.post_to_college_central_network(job)
-    number_of_postings = 30 #limits postings while testing
+    number_of_postings = 400 #limits postings while testing
 
     puts "\n************** Starting up Posting Bot **************"
 
