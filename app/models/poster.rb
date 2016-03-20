@@ -2,7 +2,7 @@ class Poster < ActiveRecord::Base
 
   # Set posting limit with number_of_postings
   def self.post_to_college_central_network(job)
-    number_of_postings = 400#limits postings while testing
+    number_of_postings = 400   #limits postings while testing
 
     puts "\n************** Starting up Posting Bot **************"
 
@@ -51,6 +51,7 @@ class Poster < ActiveRecord::Base
 
       unless form
         puts "Missing Login Form. Probably the school shut down their account"
+        broken_urls += 1
         next
       end
 
@@ -134,6 +135,7 @@ class Poster < ActiveRecord::Base
         form.ApplyOnlineURL = job[:desta_url]
         form.ExpireDate = job[:expire_date]
         form.JobDescription = job[:job_description]
+
         form.submit
 
 
@@ -248,7 +250,7 @@ Compensation and Benefits:<br>
       region: "Beavercreek",
       location_zip: "97004",
       interest_1_wanted: "88",
-      interest_2_wanted: "43",
+      interest_2_wanted: "118",
       interest_3_wanted: "117",
       special_skills: "Love having fun, people and the outoors",
       contact_name: "Joe Ewing",
@@ -291,25 +293,25 @@ Compensation and Benefits:<br>
       title: "Alaskan Outdoor Guide",
       company: "Kodiak Raspberry Island Remote Lodge",
       desta_url: "desta.co\/job\/guide-kodiad-raspberry-island-remote-lodge",
-      salary: "$2,850.00/mo + Tips + Room & Board",
+      salary: "$2,850.00/mo Tips/Room/Board",
       location_wanted: ["AK"],
       region: "Kodiak",
       location_zip: "99615",
       interest_1_wanted: "88",
-      interest_2_wanted: "43",
+      interest_2_wanted: "8",
       interest_3_wanted: "117",
       special_skills: "Love having fun, people and the outoors",
       contact_name: "Joe Ewing",
       contact_email: "joe@desta.com",
       contact_phone: "303-519-9391",
-      company_addr1: "PO Box 888 Kodiak",
+      company_addr1: "PO Box 888",
       company_addr2: "",
       company_city: "Kodiak",
       company_state: "AK",
       company_zip: "99615",
       expire_date: "06\/20\/2016",
 
-      job_description: "https:\/\/desta.co/job/o-r-e-river-guide <br><br>
+      job_description: "https:\/\/desta.co/job/guide-kodiad-raspberry-island-remote-lodge <br><br>
       The Guide Position is a combination of two sub-positions, each starting at 8:00am, and concluding at 6:00pm. First, the Guide will primarily be in charge of any kayaking and or hiking expeditions, and secondly, if the lodge doesn’t have kayakers/hikers scheduled, the guide will work as a deckhand on the boat. Lastly, the Guide will be prepared and available for ‘other duties as assigned,’ as needed.<br><br>
 The Kayaking and Hiking Guide’s focus will be on taking our guests interested in those activities out on such trips, and support and follow-through of those day’s programs. Guests are typically ready for their day of activities between 8:30 and 9am. This position is client-to-guide relationship intensive--you must start ‘guiding’ right away. Our guests vary in physical ability and experience level, so be prepared to mold the experience you will offer your participants to their ability and enthusiasm. Be prepared to teach the participants every aspect of the trip they are on--how to put on a kayak skirt properly, how to hold a paddle and stroke properly, how to dress properly based on the weather and the type of trip you are taking them on. Be prepared to answer questions regarding the locale; the flora, fauna, and other questions relating to the weather, tides, geography, etc. Be prepared to educate and position the group for good photographs. We do not expect you to know every answer but have the resources here so you can gather the majority of the information you’ll need to provide an educational and rewarding experience to your participants.<br><br>
 The weather here is predictable to a degree. You will need to make decisions based on the safety of the group and our equipment that may conflict with your participant’s immediate goals. You will be guiding in bear country and will need to be comfortable with every stage of a bear encounter, including contact. We can teach you this, but if you’re terrified of bears or the water, this is not the job for you. If you are terrified of bears or the water and want this job to overcome your fear, this is not the job for you. Trips nearly always start and finish here at the lodge. Rare exceptions will involve a boat drop off and/or pick up. There are a variety of trails, almost always game trails, that go up the mountain behind the lodge or along the coast. There are a variety of kayak experiences that start from the lodge here, as well, and will always very as the tide comes in and goes out. Though we have a very gentle current, water height variation between high and low tides may be as much as 24 feet. It is also common to paddle a ways, get out, and enjoy some time on a local beach, or walk/hike from there. We require guides and guests return to the lodge by 5:00pm. In some cases guests will wish to either depart the lodge later in the morning or return to the lodge earlier in the evening. It is imperative that the Guide remains “guiding,” or “in charge” of his or her group of guests until 5:30pm; the remaining team at the lodge does not have room in their schedule to interact with the guests. The lodge itself is also closed from 1:00 p.m. to 4:00 p.m. Guides are expected to keep our equipment well maintained, clean, and ready for the next day’s activities.<br><br>
@@ -317,8 +319,50 @@ The Deckhand Position will assist the boat captains and fishing/boating operatio
 On both kayaking/hiking guide days as well as deckhand days, the guide is expected to help outfit our guests in rain gear, boots, etc as needed at 8:00 a.m. and to help load the boat in the morning, as well as meet the boat on the beach at day’s end to help unload, clean, and prep the boat when the boat returns to the mooring.",
     }
 
+    jobs[4] = {
+      title: "Wilderness Ranch Packer",
+      company: "Triple J Ranch",
+      desta_url: "desta.co\/job\/wilderness-packer",
+      salary: "Depends on experience",
+      location_wanted: ["MT"],
+      region: "Augusta",
+      location_zip: "59410",
+      interest_1_wanted: "88",
+      interest_2_wanted: "8",
+      interest_3_wanted: "117",
+      special_skills: "Love having fun, people and the outoors",
+      contact_name: "Joe Ewing",
+      contact_email: "joe@desta.com",
+      contact_phone: "303-519-9391",
+      company_addr1: "91 MORTIMER ROAD",
+      company_addr2: "P.O. BOX 310",
+      company_city: "Augusta",
+      company_state: "MT",
+      company_zip: "59410",
+      expire_date: "06\/20\/2016",
+
+      job_description: "https:\/\/desta.co/job/wilderness-packer <br><br>
+      Each year we look for exceptional individuals to help us provide a warm, caring, safe and stress free environment for the guests that we serve. Our employees are important to us and become part of the family. We strive for excellence and the best service in the industry so we look for employees with the same qualities. If you are a self-proclaimed slacker, stop reading now. However, if you are a self-motivated, high energy, problem-solving person with a passion for the outdoors and people, we would like to hear from you!<br><br>
+We average around 20 guests per week at the Ranch and 8-10 guests on the pack-trips. Our size allows us to give each guest special attention. Often our guests say that this was the best vacation they have ever had, and it is our goal that this is true for every guest. To ensure that goal, we seek employees who are mature, outgoing individuals with an excellent work ethic, good moral character and excellent communication skills. We expect a ready smile, willingness to work hard and have fun, and a love of the outdoors and people. This requires a self-starting individual with physical stamina to put in long hours and hard work. All employees need to be organized, willing to take initiative, and have a “can do” attitude.<br><br>
+RESPONSIBILITIES:<br>
+Gathering, feeding, saddling, and preparing horses for rides<br>
+Leading trail rides both at the ranch and on wilderness pack-trips<br>
+Providing instruction to guests in accordance with our riding program<br>
+Caring for sick and injured horses<br>
+Maintaining and cleaning tack, ensuring that all is safe and in good working order, repairing as needed<br>
+Cleaning and maintaining barn area, corrals, arena, trails and ranch grounds<br>
+Moving hay, bucking bales<br>
+Maintains equipment and fixes broken equipment, leaky roofs or any other maintenance items<br>
+Leads hikes, or takes guests fishing<br>
+Fence building and repair<br>
+Assist in the packing of the Wilderness Pack-Trips, working with pack-mules.<br>
+Must be willing to perform other duties as assigned, such as yard work, trash removal, painting, dishwashing, etc.<br>
+Has a great sense of humor!<br>
+",
+    }
+
     # set job
-    current_job = jobs[2]
+    current_job = jobs[4]
     puts "Current Job is set to: #{current_job[:title]}"
 
     return  current_job
